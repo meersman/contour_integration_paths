@@ -35,3 +35,11 @@ I used a grid in each tikz figure to aid in placing the annotations. Before comp
 \draw[step=0.5cm,gray,dotted,thin] (-3.9,-3.9) grid (3.9,3.9);
 ```
 is commented out.
+
+The size of the figure can be easily modified by changing the scale at the top of each tikz figures.
+```tex
+\begin{tikzpicture}[scale=0.7]
+  ...
+\end{tikzpicture}
+```
+Note that the axis labels and annotations font size will not change with the scale. Axis labels are currently set to `\small`, annotations are set to `\scriptsize`. Adjust as needed.
