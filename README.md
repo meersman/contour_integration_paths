@@ -25,6 +25,9 @@ make clean
 ```
 # Examples
 <img src="eps_figures/contour_upper_bc.png" alt="ex1" width="300"/>
+<img src="eps_figures/contour_2pi_3.png" alt="ex2" width="300"/>
+<img src="eps_figures/contour_dog-bone_center.png" alt="ex3" width="300"/>
+
 
 # Modifying tikz files
 I used a grid in each tikz figure to aid in placing the annotations. Before compiling to eps for distribution it is recommended that the line containing,
