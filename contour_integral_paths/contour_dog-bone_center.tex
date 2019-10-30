@@ -1,0 +1,64 @@
+\begin{tikzpicture}[>=Latex,scale=0.7]
+  % Configurable parameters
+  \def\gap{0.4}
+  \def\bigradius{3}
+  \def\littleradius{0.4}
+  \def\a{0.375}
+  \def\b{0.11}
+  \def\c{0.48}
+  \def\d{0.68}
+  \def\e{0.98}
+  %
+  % Branch cut
+  \draw[thick,
+    decoration = {zigzag,segment length = 3mm, amplitude = 0.5mm},decorate]
+    (-1.5,0)--(1.5,0);
+  %
+  % Grid
+  \draw[step=0.5cm,gray,dotted,thin] (-3.9,-3.9) grid (3.9,3.9);
+  %
+  % Axis
+  \draw[thick] (-1.4*\bigradius,0) -- (-1.5,0);
+  \draw[thick,-Stealth] (1.5,0) -- (1.4*\bigradius,0)
+    node[below] {\small$\operatorname{Re}{[z]}$};
+  \draw[thick,-Stealth] (0,-1.4*\bigradius) -- (0,1.4*\bigradius)
+    node[left] {\small$\operatorname{Im}{[z]}$};
+  %
+  % Big circle contour
+  \draw[line width=1.3pt,   decoration={ markings,
+    mark=at position \a with {\arrow[line width=.8pt]{>}},
+    mark=at position \a with {\node[above left]{\scriptsize$C_5$};}},
+    postaction={decorate}] (0,0) circle [radius=\bigradius];
+  %
+  % Dog-bone contour
+  \draw[line width=1.3pt,   decoration={ markings,
+    mark=at position \b with {\arrow[line width=.8pt]{>}},
+    mark=at position \b with {\node[above right]{\scriptsize$C_1$};},
+    mark=at position \c with {\arrow[line width=.8pt]{>}},
+    mark=at position \c with {\node[below]{\scriptsize$C_2$};},
+    mark=at position \d with {\arrow[line width=.8pt]{>}},
+    mark=at position \d with {\node[above left]{\scriptsize$C_3$};},
+    mark=at position \e with {\arrow[line width=.8pt]{>}},
+    mark=at position \e with {\node[above]{\scriptsize$C_4$};}},
+    postaction={decorate}]
+    let
+    \n1 = {asin(\gap/2/\littleradius)}
+    in ([shift=(180-\n1:\littleradius)]1.5,0) arc (180-\n1:-180+\n1:\littleradius)
+    -- ([shift=(360-\n1:\littleradius)]-1.5,0) arc (360-\n1:+\n1:\littleradius)
+    -- cycle;
+  %
+  % Connecting lines
+  \draw[dashed, line width=1pt,   decoration={ markings,
+    mark=at position 0.5 with {\arrow[line width=.8pt]{>}}},
+    postaction={decorate}] (1.1,-\gap/2) -- (1.1,-\bigradius+0.2);
+  \draw[dashed, line width=1pt,   decoration={ markings,
+    mark=at position 0.5 with {\arrow[line width=.8pt]{>}}},
+    postaction={decorate}] (0.9,-\bigradius+0.2) -- (0.9,-\gap/2);
+  %
+  % Points
+  \draw [fill] (-1.5,0) circle [radius=0.1];
+  \draw [fill] (1.5,0) circle [radius=0.1];
+  \draw [fill,color=red] (0,1.5) circle [radius=0.1] node[left] {\scriptsize$z_1=ia$};
+  \draw [fill,color=red] (0,-1.5) circle [radius=0.1] node[left] {\scriptsize$z_2=-ia$};
+  %
+\end{tikzpicture}

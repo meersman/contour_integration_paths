@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{calc,decorations.markings,decorations.pathmorphing,arrows.meta}
+% set up externalization
+\usetikzlibrary{external}
+\tikzset{external/system call={latex \tikzexternalcheckshellescape -halt-on-error
+-interaction=batchmode -jobname "\image" "\texsource";
+dvips -o "\image".ps "\image".dvi;
+ps2eps "\image.ps"}}
+\tikzexternalize
+\begin{document}
+%---------------------------------------------------------------------------------
+%
+%\input{./contour_integral_paths/contour_keyhole.tex}
+%
+\input{./contour_integral_paths/contour_upper_bc.tex}
+%
+%\input{./contour_integral_paths/contour_dog-bone_center.tex}
+%
+%\input{./contour_integral_paths/contour_dog-bone_right.tex}
+%
+%\input{./contour_integral_paths/contour_upper.tex}
+%
+%\input{./contour_integral_paths/contour_lower.tex}
+%
+%\input{./contour_integral_paths/contour_upper_poles.tex}
+%
+%\input{./contour_integral_paths/contour_2pi_3.tex}
+%
+%\input{./contour_integral_paths/contour_4pi_3.tex}
+%
+%\input{./contour_integral_paths/contour_pi_4.tex}
+%
+%\input{./contour_integral_paths/contour_laplace.tex}
+%
+%---------------------------------------------------------------------------------
+\end{document}

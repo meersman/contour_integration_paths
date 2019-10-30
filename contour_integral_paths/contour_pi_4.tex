@@ -1,0 +1,38 @@
+\begin{tikzpicture}[>=Latex,scale=0.7]
+  % Configurable parameters
+  \def\bigradius{3}
+  \def\n1{45}
+  \def\a{0.15}
+  \def\b{0.475}
+  \def\c{0.88}
+  %
+  % Grid
+  \draw[step=0.5cm,gray,dotted,thin] (-3.9,-3.9) grid (3.9,3.9);
+  %
+  % Axes
+  \draw[thick,-Stealth] (-0.5,0) -- (1.4*\bigradius,0)
+    node[below] {\small$\operatorname{Re}{[z]}$};
+  \draw[thick,-Stealth] (0,-0.5) -- (0, 1.4*\bigradius)
+    node[left] {\small$\operatorname{Im}{[z]}$};
+  %
+  % Angle label
+  \filldraw[fill=blue!15!white,opacity=0.65, draw=blue!50!black,thick]
+    (0.5,0) arc (0:\n1:0.5) -- (0,0) -- cycle;
+  \node[blue!50!black,above right] at (0.4,0.05) {\scriptsize$\pi/4$};
+  %
+  % Contour path
+  \draw[line width=1.3pt, decoration={markings,
+    mark=at position \a with {\arrow[line width=.8pt]{>}},
+    mark=at position \a with {\node[right]{\scriptsize$C_1$};},
+    mark=at position \b with {\arrow[line width=.8pt]{>}},
+    mark=at position \b with {\node[above left]{\scriptsize$C_2$};},
+    mark=at position \c with {\arrow[line width=.8pt]{>}},
+    mark=at position \c with {\node[below]{\scriptsize$C_3$};}},
+    postaction={decorate}]
+    (0:\bigradius) arc (0:\n1:\bigradius) -- (0,0) -- cycle;
+  %
+  % Points
+  \draw [fill,color=red] (0,1.5) circle [radius=0.1] node[left] {\scriptsize$z_1=ia$};
+  \draw [fill,color=red] (0,-1.5) circle [radius=0.1] node[left] {\scriptsize$z_2=-ia$};
+  %
+\end{tikzpicture}
