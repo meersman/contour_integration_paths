@@ -25,7 +25,7 @@ make clean
 ```
 # Examples
 <img src="eps_figures/contour_upper_bc.png" alt="ex1" width="300"/>
-<img src="eps_figures/contour_2pi_3.png" alt="ex2" width="300"/>
+<img src="eps_figures/contour_2pi_3.png" alt="ex2" width="200"/>
 <img src="eps_figures/contour_dog-bone_center.png" alt="ex3" width="300"/>
 
 
