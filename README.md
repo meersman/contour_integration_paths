@@ -19,3 +19,15 @@ In the document, uncomment the figure you would like to compile. The makefile al
 ```bash
 make eps
 ```
+To clean all production files,
+```bash
+make clean
+```
+# Examples
+
+# Modifying tikz files
+I used a grid in each tikz figure to aid in placing the annotations. Before compiling to eps for distribution it is recommended that the line containing,
+```tex
+\draw[step=0.5cm,gray,dotted,thin] (-3.9,-3.9) grid (3.9,3.9);
+```
+is commented out.
