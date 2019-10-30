@@ -25,7 +25,7 @@ make clean
 ```
 # Examples
 
-![Upper contour branch cut](eps_figures/contour_upper_bc.png)
+![Upper contour branch cut](eps_figures/contour_upper_bc.png =100x)
 
 # Modifying tikz files
 I used a grid in each tikz figure to aid in placing the annotations. Before compiling to eps for distribution it is recommended that the line containing,
