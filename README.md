@@ -1,7 +1,7 @@
 # Contour Integration Paths
 tikz figures of complex contour integration paths
 
-# Compilatino
+# Compilation
 To compile the document together, a `makefile` is included. In the terminal simply execute,
 ```bash
 make
