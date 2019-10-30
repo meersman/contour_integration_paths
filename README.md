@@ -25,6 +25,8 @@ make clean
 ```
 # Examples
 
+![upper contour branch but](https://meersman.github.com/contour_integration_paths/eps_figures/contour_upper_bc.eps)
+
 # Modifying tikz files
 I used a grid in each tikz figure to aid in placing the annotations. Before compiling to eps for distribution it is recommended that the line containing,
 ```tex
