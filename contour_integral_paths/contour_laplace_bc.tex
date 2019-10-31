@@ -1,0 +1,70 @@
+\begin{tikzpicture}[>=Latex,scale=1.0]
+  % Configurable parameters
+  \def\gap{0.4}             % Gap between contours above and below branch cut
+  \def\bigradius{3}         % Radius of outer circular contour
+  \def\littleradius{0.6}    % Radius of inner circular contour
+  \def\upper{60}            % Angle at which vertical line intersects outer contour
+  \def\a{0.15}              % C1
+  \def\b{0.30}              % C2
+  \def\c{0.455}              % C3
+  \def\d{0.51}              % C4
+  \def\e{0.66}              % C5
+  \def\f{0.94}              % C6
+  \newcommand{\axlables}{\normalsize}
+  \newcommand{\annotations}{\normalsize}
+  \newcommand{\anglables}{\footnotesize}
+  %
+  % Grid (uncomment below if necessary)
+  %\draw[step=0.5cm,gray,dotted,thin] (-3.9,-3.9) grid (3.9,3.9);
+  %
+  % Branch cut
+  \draw[thick,
+    decoration = {zigzag,segment length = 3mm, amplitude = 0.5mm},decorate]
+    (-1.4*\bigradius,0)--(0,0);
+  % Axes
+  \draw[thick,-Stealth] (0,0) -- (3,0)
+    node[below] {\axlables$\operatorname{Re}{[z]}$};
+  \draw[thick,-Stealth] (0,-1.4*\bigradius) -- (0, 1.4*\bigradius)
+    node[left] {\axlables$\operatorname{Im}{[z]}$};
+  %
+  % Angle label
+  \filldraw[fill=blue!20!white,opacity=0.65,draw=blue!50!black,thick]
+    (0.5,0) arc (0:\upper:0.5) -- (0,0) -- cycle;
+  \node[blue!50!black,above right] at (0.4,0.2) {\anglables$\theta_1$};
+  \filldraw[fill=blue!20!white,opacity=0.65,draw=blue!50!black,thick]
+    (0.5,0) arc (0:-\upper:0.5) -- (0,0) -- cycle;
+  \node[blue!50!black,below right] at (0.4,-0.2) {\anglables$\theta_2$};
+  % Contour path
+  \draw[line width=1.3pt,   decoration={ markings,
+    mark=at position \a with {\arrow[line width=.8pt]{>}},
+    mark=at position \a with {\node[above left]{\annotations$C_1$};},
+    mark=at position \b with {\arrow[line width=.8pt]{>}},
+    mark=at position \b with {\node[above ]{\annotations$C_2$};},
+    mark=at position \c with {\arrow[line width=.8pt]{>}},
+    mark=at position \c with {\node[below left]{\annotations$C_3$};},
+    mark=at position \d with {\arrow[line width=.8pt]{>}},
+    mark=at position \d with {\node[below]{\annotations$C_4$};},
+    mark=at position \e with {\arrow[line width=.8pt]{>}},
+    mark=at position \e with {\node[below left]{\annotations$C_5$};},
+    mark=at position \f with {\arrow[line width=.8pt]{>}},
+    mark=at position \f with {\node[right]{\annotations$C_6$};}},
+    postaction={decorate}]
+    let
+    \n1 = {asin(\gap/2/\bigradius)},
+    \n2 = {asin(\gap/2/\littleradius)}
+    in
+    (\upper:\bigradius) arc (\upper:180-\n1:\bigradius)
+    -- (180-\n2:\littleradius) arc (180-\n2:-180+\n2:\littleradius)
+    -- (180+\n1:\bigradius) arc (180+\n1:360-\upper:\bigradius)
+    -- cycle;
+  %
+  % Connecting lines
+  \draw[dashed] (0,0) -- (\upper:\bigradius);
+  \draw[dashed] (0,0) -- (-\upper:\bigradius);
+  %
+  % Labels
+  \node[right] at (1.5,2.6) {\annotations$a+i\tau$};
+  \node[right] at (1.5,-2.6) {\annotations$a-i\tau$};
+  \draw [fill] (0,0) circle [radius=0.1];
+  %
+\end{tikzpicture}
