@@ -1,5 +1,5 @@
 # Contour Integration Paths
-tikz figures of complex contour integration paths
+tikz figures of complex contour integration paths that I made for a math class.
 
 # Compilation
 To compile the document together, a `makefile` is included. In the terminal simply execute,
