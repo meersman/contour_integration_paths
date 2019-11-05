@@ -1,11 +1,12 @@
-\begin{tikzpicture}[>=Latex,scale=0.7]
+\begin{tikzpicture}[>=Latex,scale=0.6]
   % Configurable parameters
   \def\bigradius{3}
+  \def\littleradius{2}
   \def\a{0.45}
   \def\b{0.93}
   %
   % Grid
-  \draw[step=0.5cm,gray,dotted,thin] (-3.9,-3.9) grid (3.9,3.9);
+  %\draw[step=0.5cm,gray,dotted,thin] (-3.9,-3.9) grid (3.9,3.9);
   %
   % Axes
   \draw[thick,-Stealth] (-1.4*\bigradius, 0) -- (1.4*\bigradius,0)
@@ -19,13 +20,15 @@
     mark=at position \a with {\node[below left]{\scriptsize$C_1$};},
     mark=at position \b with {\arrow[line width=.8pt]{>}},
     mark=at position \b with {\node[below]{\scriptsize$C_2$};}},
-    postaction={decorate}] (0:\bigradius) arc (0:-180:\bigradius)
-    -- cycle;
+    postaction={decorate}]
+    (0:\bigradius) arc (0:-180:\bigradius) -- cycle;
   %
   % Labels
   \node[above] at (-\bigradius,0) {\scriptsize$-R$};
   \node[above] at (\bigradius,0) {\scriptsize$R$};
-  \draw [fill,color=red] (0,1.5) circle [radius=0.1] node[right] {\scriptsize$z_1=ia$};
-  \draw [fill,color=red] (0,-1.5) circle [radius=0.1] node[right] {\scriptsize$z_2=-ia$};
+  \draw [fill,color=red] (72:\littleradius) circle [radius=0.1] node[right] {$z_1$};
+  \draw [fill,color=red] (144:\littleradius) circle [radius=0.1] node[right] {$z_2$};
+  \draw [fill,color=red] (216:\littleradius) circle [radius=0.1] node[right] {$z_3$};
+  \draw [fill,color=red] (288:\littleradius) circle [radius=0.1] node[right] {$z_4$};
   %
 \end{tikzpicture}
